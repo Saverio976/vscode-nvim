@@ -9,6 +9,12 @@ try to have a vscode-like with neovim config
 - test it without affect current settings
 
 ```bash
-docker build . -t vscode-nvim:latest
-docker run -it --rm vscode-nvim
+# docker build . -t saverio976/vscode-nvim:latest
+docker run -it --rm saverio976/vscode-nvim
 ```
+
+# Links
+
+- https://hub.docker.com/repository/docker/saverio976/vscode-nvim
+
+- https://git.kreog.com/Saverio976/vscode-nvim
