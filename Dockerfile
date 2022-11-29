@@ -17,12 +17,8 @@ RUN adduser \
         --disabled-password \
         --home /home/nvimuser \
         nvimuser
-COPY ./.config /home/nvimuser/.config
-RUN mkdir -p /home/nvimuser/.local
-RUN chown -R nvimuser:nvimuser /home/nvimuser
+COPY --chown=nvimuser:nvimuser ./.config /home/nvimuser/.config
 COPY ./post-install-nvim.sh /tmp/post-install-nvim
-RUN chmod +x /tmp/post-install-nvim
-RUN chown nvimuser:nvimuser /tmp/post-install-nvim
 WORKDIR /home/nvimuser
 USER nvimuser
-CMD id && /tmp/post-install-nvim && echo && /bin/bash
+CMD echo "start install" && bash /tmp/post-install-nvim && nvim
