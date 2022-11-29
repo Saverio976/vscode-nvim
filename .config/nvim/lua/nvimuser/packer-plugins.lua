@@ -16,10 +16,8 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  -- My plugins here
-  -- use 'foo1/bar1.nvim'
-  -- use 'foo2/bar2.nvim'
 
+  -- lua/nvimuser/theme.lua
   use { 'Mofiqul/vscode.nvim' }
   use { 'nvim-lualine/lualine.nvim' }
   use { 'akinsho/bufferline.nvim' }
@@ -29,6 +27,46 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons',
     },
   }
+  use { 'wfxr/minimap.vim' }
+
+  -- lua/nvimuser/terminal.lua
+  use { 'voldikss/vim-floaterm' }
+
+  -- lua/nvimuser/lsp.lua
+  use { 'neovim/nvim-lspconfig' }
+  use { 'onsails/lspkind-nvim' }
+  use { 'folke/trouble.nvim' }
+  use { 'j-hui/fidget.nvim' }
+  use { 'kosayoda/nvim-lightbulb' }
+
+  -- lua/nvimuser/autocompletion.lua
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'lukas-reineke/cmp-rg',
+      'hrsh7th/cmp-path',
+      'lukas-reineke/cmp-under-comparator',
+      'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-buffer',
+    },
+  }
+  use {
+    'L3MON4D3/LuaSnip',
+    requires = {
+      'rafamadriz/friendly-snippets',
+    },
+  }
+  -- use { '' } -- auto pairs
+  use { 'folke/which-key.nvim' }
+  use {
+    'RishabhRD/nvim-cheat.sh',
+    requires = {
+      'RishabhRD/popfix'
+    },
+  }
+  use { 'gelguy/wilder.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

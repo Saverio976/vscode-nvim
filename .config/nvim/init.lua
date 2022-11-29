@@ -7,13 +7,21 @@ local file_to_load = {
     username .. "." .. "commands",
     username .. "." .. "terminal",
     username .. "." .. "lsp",
+    username .. "." .. "autocompletion",
     username .. "." .. "codeaction",
     username .. "." .. "options",
 }
 
+local is_debug = true
+
 for _, file in ipairs(file_to_load) do
-    local okimport, _ = pcall(require, file)
-    if not okimport then
-        print("can't load file: " .. file)
+    if is_debug then
+        require(file)
+    else
+        local okimport, _ = pcall(require, file)
+        if not okimport then
+            print("can't load file: " .. file)
+            print("\n")
+        end
     end
 end

@@ -69,6 +69,8 @@ if oklualine then
     })
 end
 
+-- tab at top with file
+--https://github.com/akinsho/bufferline.nvim
 local okbuferline, buferline = pcall(require, 'bufferline')
 if okbuferline then
     buferline.setup({
@@ -131,6 +133,8 @@ if okbuferline then
     })
 end
 
+-- folder tree
+-- https://github.com/nvim-tree/nvim-tree.lua
 local oknvimtree, nvimtree = pcall(require, 'nvim-tree')
 if oknvimtree then
     nvimtree.setup({
@@ -139,6 +143,9 @@ if oknvimtree then
         prefer_startup_root = true,
         sync_root_with_cwd = false,
         reload_on_bufenter = true,
+        view = {
+            width = 25,
+        },
         renderer = {
             highlight_git = true,
             indent_markers = {
@@ -150,3 +157,13 @@ if oknvimtree then
         },
     })
 end
+
+-- minimap liek vscode
+-- https://github.com/wfxr/minimap.vim
+-- local filetypeok = [[python,javascript,typescript,typescripttreact,]]
+-- filetypeok = filetypeok .. [[javascriptreact,markdown,rust,c,cpp,hpp,]]
+-- filetypeok = filetypeok .. [[bash,lua,ini,config]]
+vim.g.minimap_highlight_search = 1
+vim.g.minimap_git_colors = 1
+vim.g.minimap_auto_start = 1
+vim.cmd("let g:minimap_block_buftypes = ['nofile', 'nowrite', 'quickfix', 'terminal', 'prompt', 'popup']")
