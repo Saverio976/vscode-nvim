@@ -12,7 +12,7 @@ local file_to_load = {
     username .. "." .. "options",
 }
 
-local is_debug = true
+local is_debug = false
 
 for _, file in ipairs(file_to_load) do
     if is_debug then
