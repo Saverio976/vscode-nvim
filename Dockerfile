@@ -1,24 +1,22 @@
-FROM debian:stable-slim
-
-RUN apt-get update -y && \
-    apt-get upgrade -y && \
-    apt-get install curl git clang nodejs -y && \
-    apt-get autoremove -y && \
-    apt-get clean -y
+FROM debian:11-slim
+RUN apt-get update &&  \
+    apt-get install -y \
+        clang          \
+        curl           \
+        git            \
+        nodejs &&      \
+    apt-get clean &&   \
+    rm -rf /var/lib/apt/
 ARG NVIM_VERSION=0.8.1
-RUN curl -Lo /tmp/nvim.deb \
-    "https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb"
-RUN apt-get install /tmp/nvim.deb
-RUN adduser \
-        --system \
-        --shell /bin/bash \
-        --gecos 'User of vscode-nvim' \
-        --group \
-        --disabled-password \
-        --home /home/nvimuser \
-        nvimuser
-COPY --chown=nvimuser:nvimuser ./.config /home/nvimuser/.config
-COPY ./post-install-nvim.sh /tmp/post-install-nvim
-WORKDIR /home/nvimuser
+RUN curl -Lo nvim.deb                                                                 \
+        https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb && \
+    apt-get install ./nvim.deb &&                                                     \
+    rm -f nvim.deb
+RUN useradd -m -s "$SHELL" nvimuser
 USER nvimuser
-CMD echo "start install" && bash /tmp/post-install-nvim && nvim
+WORKDIR /home/nvimuser
+COPY --chown=nvimuser:nvimuser .config /home/nvimuser/.config/
+RUN nvim --headless                              \
+        -c 'autocmd User PackerComplete quitall' \
+        -c 'PackerCompile | PackerSync'
+CMD ["nvim"]
