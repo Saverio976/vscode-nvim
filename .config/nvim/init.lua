@@ -20,8 +20,7 @@ for _, file in ipairs(file_to_load) do
     else
         local okimport, _ = pcall(require, file)
         if not okimport then
-            print("can't load file: " .. file)
-            print("\n")
+            print("can't load file: " .. file .. "\n")
         end
     end
 end
