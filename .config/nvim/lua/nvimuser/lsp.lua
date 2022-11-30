@@ -2,7 +2,7 @@
 --https://github.com/neovim/nvim-lspconfig
 local oklspconfig, lspconfig = pcall(require, 'lspconfig')
 if not oklspconfig then
-    print("Could not load lsp")
+    print("Could not load lsp\n")
     return
 end
 local on_attach_ = function (_, bufnr)
