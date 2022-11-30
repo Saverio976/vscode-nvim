@@ -1,3 +1,20 @@
+local okimpatient, impatient = pcall(require, 'impatient')
+if okimpatient then
+    impatient.enable_profile()
+end
+local okfiletype, filetype = pcall(require, 'filetype')
+if okfiletype then
+    filetype.setup({
+        overrides = {
+            extensions = {
+                h = "c",
+                v = "v",
+                hpp = "cpp",
+            },
+        },
+    })
+end
+
 local username = "nvimuser"
 
 local file_to_load = {
@@ -10,6 +27,7 @@ local file_to_load = {
     username .. "." .. "autocompletion",
     username .. "." .. "codeaction",
     username .. "." .. "options",
+    username .. "." .. "text-interract",
 }
 
 local is_debug = false

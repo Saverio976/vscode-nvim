@@ -11,3 +11,4 @@ vim.g.floaterm_keymap_new = '<C-S-²>'
 vim.g.floaterm_keymap_prev = '<C-PageUp>'
 vim.g.floaterm_keymap_next = '<C-PageDown>'
 vim.g.floaterm_keymap_toggle = '<C-=>'
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { desc = 'Terminal: Enter Normal Mode' })

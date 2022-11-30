@@ -160,10 +160,62 @@ end
 
 -- minimap liek vscode
 -- https://github.com/wfxr/minimap.vim
--- local filetypeok = [[python,javascript,typescript,typescripttreact,]]
--- filetypeok = filetypeok .. [[javascriptreact,markdown,rust,c,cpp,hpp,]]
--- filetypeok = filetypeok .. [[bash,lua,ini,config]]
 vim.g.minimap_highlight_search = 1
 vim.g.minimap_git_colors = 1
 vim.g.minimap_auto_start = 1
 vim.cmd("let g:minimap_block_buftypes = ['nofile', 'nowrite', 'quickfix', 'terminal', 'prompt', 'popup']")
+
+-- fold block code
+-- https://github.com/kevinhwang91/nvim-ufo
+local okufo, ufo = pcall(require, 'ufo')
+if okufo then
+    vim.g.foldcolumn = 1
+    vim.o.foldlevel = 99
+    vim.o.foldlevelstart = 99
+    vim.o.foldenable = true
+    vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'Folds: Open All' })
+    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Folds: Close All' })
+    ufo.setup({
+        provider_selector = function(_bufnr, _filetype, _buftype)
+            return {'treesitter', 'indent'}
+        end,
+    })
+end
+
+local oktreesitter, treesitter = pcall(require, 'nvim-treesitter.configs')
+if oktreesitter then
+    treesitter.setup({
+        ensure_installed = { "c", "python", "typescript", "javascript", "bash", "lua", "rust" },
+        sync_install = true,
+        rainbow = {
+            enable = true,
+            extended_mode = true,
+            max_file_lines = 1000,
+        },
+    })
+    vim.cmd([[au! VimEnter * TSUpdate]])
+end
+
+local okcolorizer, colorizer = pcall(require, 'colorizer')
+if okcolorizer then
+    colorizer.setup()
+end
+
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
+vim.opt.listchars:append "trail:⋅"
+vim.opt.listchars:append "tab: ▷"
+local okindentblank, indentblank = pcall(require, 'indent_blankline')
+if okindentblank then
+    indentblank.setup({
+        space_char_blankline = " ",
+        show_current_context = true,
+        show_current_context_start = true,
+        show_end_of_line = true,
+    })
+end
+
+local okgit, gitsigns = pcall(require, 'gitsigns')
+if okgit then
+    gitsigns.setup()
+end

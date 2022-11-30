@@ -21,6 +21,22 @@ if okcmpunder then
 else
     func_cmp_under = function (_entry1, _entry2) end
 end
+local oktabninecmp, tabninecmp = pcall(require, 'cmp_tabnine.compare')
+local func_cmp_tabnine
+if oktabninecmp then
+    func_cmp_tabnine = tabninecmp
+else
+    func_cmp_tabnine = function (_entry1, _entry2) end
+end
+
+local source_mapping = {
+    nvim_lsp = "[LSP]",
+    luasnip = "[LuaSnip]",
+    rg = '[RG]',
+    buffer = "[Buffer]",
+    cmp_tabnine = "[TN]",
+    path = "[Path]",
+}
 
 cmp.setup({
     snippet = {
@@ -45,6 +61,7 @@ cmp.setup({
     },
     sorting = {
         comparators = {
+            func_cmp_tabnine,
             cmp.config.compare.offset,
             cmp.config.compare.exact,
             cmp.config.compare.score,
@@ -56,18 +73,24 @@ cmp.setup({
         },
     },
     formatting = {
-        format = lspkind.cmp_format({
-            mode = 'symbol_text',
-            maxwidth = 50,
-            before = function (entry, vim_item)
-                vim_item.menu = ({
-                    nvim_lsp = "[LSP]",
-                    luasnip = "[LuaSnip]",
-                    rg = '[RG]'
-                })[entry.source.name]
-                return vim_item
+        format = function(entry, vim_item)
+            vim_item.kind = lspkind.symbolic(vim_item.kind, {mode = "symbol_text"})
+            vim_item.menu = source_mapping[entry.source.name]
+            if entry.source.name == "cmp_tabnine" then
+                local detail = (entry.completion_item.data or {}).detail
+                vim_item.kind = ""
+                if detail and detail:find('.*%%.*') then
+                    vim_item.kind = vim_item.kind .. ' ' .. detail
+                end
+
+                if (entry.completion_item.data or {}).multiline then
+                    vim_item.kind = vim_item.kind .. ' ' .. '[ML]'
+                end
             end
-        })
+            local maxwidth = 80
+            vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+            return vim_item
+        end,
     },
     sources = {
         { name = 'nvim_lsp' },
@@ -94,6 +117,7 @@ cmp.setup({
                 return { buf }
             end
         },
+        { name = 'cmp_tabnine' }
     },
 })
 
@@ -130,3 +154,23 @@ end
 -- curl cheat.sh to get help
 -- https://github.com/RishabhRD/nvim-cheat.sh
 vim.g.cheat_default_window_layout = 'tab'
+
+-- completion of keymap
+-- https://github.com/folke/which-key.nvim
+local okwhichkey, whichkey = pcall(require, 'which-key')
+if okwhichkey then
+    whichkey.setup({
+        registers = true,
+    })
+end
+
+local oktabnine, tabnine = pcall(require, 'cmp_tabnine.config')
+if oktabnine then
+    tabnine:setup({
+        max_lines = 1000,
+        max_num_results = 3,
+        sort = true,
+        snippet_placeholder = '..',
+        show_prediction_strength = true,
+    })
+end

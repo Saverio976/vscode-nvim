@@ -17,6 +17,9 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use { 'lewis6991/impatient.nvim' }
+  use { 'nathom/filetype.nvim' }
+
   -- lua/nvimuser/theme.lua
   use { 'Mofiqul/vscode.nvim' }
   use { 'nvim-lualine/lualine.nvim' }
@@ -28,6 +31,16 @@ return require('packer').startup(function(use)
     },
   }
   use { 'wfxr/minimap.vim' }
+  use {
+    'kevinhwang91/nvim-ufo',
+    requires = {
+      'kevinhwang91/promise-async',
+    },
+  }
+  use { 'norcalli/nvim-colorizer.lua' }
+  use { 'lukas-reineke/indent-blankline.nvim' }
+  use { 'lewis6991/gitsigns.nvim' }
+  use { 'p00f/nvim-ts-rainbow' }
 
   -- lua/nvimuser/terminal.lua
   use { 'voldikss/vim-floaterm' }
@@ -53,6 +66,14 @@ return require('packer').startup(function(use)
     },
   }
   use {
+    'tzachar/cmp-tabnine',
+    after = "nvim-cmp",
+    run = './install.sh',
+    requires = {
+      'hrsh7th/nvim-cmp'
+    }
+  }
+  use {
     'L3MON4D3/LuaSnip',
     requires = {
       'rafamadriz/friendly-snippets',
@@ -70,6 +91,10 @@ return require('packer').startup(function(use)
 
   -- code comments (lua/nvimuser/commands.lua)
   use { 'numToStr/Comment.nvim' }
+
+  -- treesitter
+  use { 'nvim-treesitter/nvim-treesitter' }
+  use { 'Darazaki/indent-o-matic' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

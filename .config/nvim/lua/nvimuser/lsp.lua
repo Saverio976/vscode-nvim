@@ -1,3 +1,24 @@
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, {
+    desc = 'Lsp: Diagnostics of current line',
+    noremap=true,
+    silent=true
+})
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {
+    desc = 'Lsp: Diagnostics previous',
+    noremap=true,
+    silent=true
+})
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {
+    desc = 'Lsp: Diagnostics next',
+    noremap=true,
+    silent=true
+})
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, {
+    desc = 'Lsp: Show hover information',
+    noremap=true,
+    silent=true
+})
+
 -- add some config to default lsp
 --https://github.com/neovim/nvim-lspconfig
 local oklspconfig, lspconfig = pcall(require, 'lspconfig')
