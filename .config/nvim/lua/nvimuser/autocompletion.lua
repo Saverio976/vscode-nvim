@@ -9,7 +9,7 @@ end
 local oklspkind, lspkind = pcall(require, 'lspkind')
 if not oklspkind then
     lspkind = {}
-    print('error loading lspkind')
+    print('error loading lspkind\n')
     function lspkind.cmp_format(_)
         return nil
     end
@@ -118,10 +118,7 @@ if okwilder then
         ),
     })
     wilder.set_option('renderer', wilder.popupmenu_renderer(
-        wilder.popupmenu_border_theme({
-            highlights = {
-                border = 'Normal',
-            },
+        wilder.popupmenu_palette_theme({
             highlighter = wilder.basic_highlighter(),
             left = {' ', wilder.popupmenu_devicons()},
             right = {' ', wilder.popupmenu_scrollbar()},
