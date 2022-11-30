@@ -68,6 +68,9 @@ return require('packer').startup(function(use)
   }
   use { 'gelguy/wilder.nvim' }
 
+  -- code comments (lua/nvimuser/commands.lua)
+  use { 'numToStr/Comment.nvim' }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
