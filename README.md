@@ -31,6 +31,8 @@ apt install unzip curl
 paru -S unzip curl
 ```
 
+- After that, you can move the `./.config/nvim` to your `$HOME/.config/nvim`
+
 # Remainder of some commands
 
 - test it without affect current settings
