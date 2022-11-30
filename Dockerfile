@@ -1,10 +1,9 @@
-FROM debian:stable-slim
+FROM node:slim
 RUN apt-get update &&  \
     apt-get install -y \
         clang          \
         curl           \
-        git            \
-        nodejs &&      \
+        git &&         \
     apt-get clean &&   \
     rm -rf /var/lib/apt/
 ARG NVIM_VERSION=0.8.1
@@ -17,6 +16,7 @@ RUN curl -Lo code-minimap.deb \
     apt-get install ./code-minimap.deb && \
     rm -f code-minimap.deb
 RUN useradd -m -s "$SHELL" nvimuser
+RUN npm install -g pyright typescript typescript-language-server
 USER nvimuser
 WORKDIR /home/nvimuser
 COPY --chown=nvimuser:nvimuser .config /home/nvimuser/.config/
