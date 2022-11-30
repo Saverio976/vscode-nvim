@@ -26,6 +26,9 @@ apt install ./code-minimap.deb
 curl -Lo code-minimap.tar.gz 'https://github.com/wfxr/code-minimap/releases/download/v0.6.4/code-minimap-v0.6.4-aarch64-unknown-linux-gnu.tar.gz'
 tar xf code-minimap.tar.gz
 mv code-minimap-v0.6.4-aarch64-unknown-linux-gnu/code-minimap /usr/local/bin/code-minimap
+# tabnine:
+apt install unzip curl
+paru -S unzip curl
 ```
 
 # Remainder of some commands
