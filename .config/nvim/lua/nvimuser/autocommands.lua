@@ -13,5 +13,3 @@ if oktabnine then
         end
     })
 end
-
-vim.cmd([[autocmd BufEnter * EnableBlameLine]])

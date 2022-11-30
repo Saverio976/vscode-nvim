@@ -219,3 +219,5 @@ local okgit, gitsigns = pcall(require, 'gitsigns')
 if okgit then
     gitsigns.setup()
 end
+
+vim.g.gitblame_enabled = 1

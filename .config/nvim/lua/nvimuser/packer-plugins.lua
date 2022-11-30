@@ -41,7 +41,7 @@ return require('packer').startup(function(use)
   use { 'lukas-reineke/indent-blankline.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
   use { 'p00f/nvim-ts-rainbow' }
-  use { 'tveskag/nvim-blame-line' }
+  use { 'f-person/git-blame.nvim' }
 
   -- lua/nvimuser/terminal.lua
   use { 'voldikss/vim-floaterm' }
