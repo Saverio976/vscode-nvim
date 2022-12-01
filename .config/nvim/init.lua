@@ -20,7 +20,6 @@ local username = "nvimuser"
 local file_to_load = {
     username .. "." .. "packer-plugins",
     username .. "." .. "theme",
-    username .. "." .. "autocommands",
     username .. "." .. "commands",
     username .. "." .. "terminal",
     username .. "." .. "lsp",
@@ -28,6 +27,7 @@ local file_to_load = {
     username .. "." .. "codeaction",
     username .. "." .. "options",
     username .. "." .. "text-interract",
+    username .. "." .. "autocommands",
 }
 
 local is_debug = false
