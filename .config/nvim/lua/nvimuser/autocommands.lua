@@ -15,3 +15,6 @@ if oktabnine then
         end
     })
 end
+
+-- enter in insert mode in modifiable buffer
+vim.cmd([[au! BufEnter <buffer> if expand('%:p') != '' | startinsert | endif]])
