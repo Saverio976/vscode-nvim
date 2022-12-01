@@ -17,4 +17,4 @@ if oktabnine then
 end
 
 -- enter in insert mode in modifiable buffer
-vim.cmd([[au! BufEnter <buffer> if expand('%:p') != '' | startinsert | endif]])
+vim.cmd([[au! BufEnter * if &modifiable == 1 && &buftype != "nofile" && &buftype != "" | startinsert | endif]])
