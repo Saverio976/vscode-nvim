@@ -4,6 +4,16 @@ try to have a vscode-like with neovim config
 
 ![current-nvim](/assets/current-nvim.png)
 
+# Features
+
+- right click show some lsp actions
+
+- minimap
+
+- autocompletion (with lsp (+ tabnine))
+
+- tab resizable with mouse (neovim default)
+
 # Install
 
 ```bash
