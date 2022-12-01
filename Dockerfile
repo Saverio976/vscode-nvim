@@ -27,5 +27,5 @@ RUN nvim --headless                              \
     nvim --headless                              \
         -c 'TSUpdate | quitall' &&               \
     nvim --headless                              \
-        -c 'TSUpdate | quitall'
+        -c 'quitall'
 CMD nvim; bash
