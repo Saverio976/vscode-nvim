@@ -215,8 +215,8 @@ end
 local oklspsaga, lspsaga = pcall(require, 'lspsaga')
 if oklspsaga then
     lspsaga.init_lsp_saga()
-    vim.cmd([[nmenu PopUp.Lsp\ Diagnostics\ Line <CMD>Lspsaga show_line_diagnostics<CR>]])
-    vim.cmd([[nmenu PopUp.Lsp\ Diagnostics <CMD>Lspsaga show_cursor_diagnostics<CR>]])
-    vim.cmd([[nmenu PopUp.Lsp\ Doc\ Hover <CMD>Lspsaga hover_doc<CR>]])
-    vim.cmd([[nmenu PopUp.Lsp\ Finder <CMD>Lspsaga lsp_finder<CR>]])
+    vim.cmd([[nmenu PopUp.Lsp:\ Diagnostics\ Line <CMD>Lspsaga show_line_diagnostics<CR>]])
+    vim.cmd([[nmenu PopUp.Lsp:\ Diagnostics <CMD>Lspsaga show_cursor_diagnostics<CR>]])
+    vim.cmd([[nmenu PopUp.Lsp:\ Doc\ Hover <CMD>Lspsaga hover_doc<CR>]])
+    vim.cmd([[nmenu PopUp.Lsp:\ Finder <CMD>Lspsaga lsp_finder<CR>]])
 end

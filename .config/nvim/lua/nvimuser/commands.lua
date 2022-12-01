@@ -22,3 +22,6 @@ end
 vim.cmd([[cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'bd' : 'x']])
 vim.cmd([[cnoreabbrev <expr> q getcmdtype() == ":" && getcmdline() == 'q' ? 'bd' : 'q']])
 vim.cmd([[cnoreabbrev <expr> wq getcmdtype() == ":" && getcmdline() == 'wq' ? 'write \| bd' : 'wq']])
+
+vim.keymap.set('n', '<C-f>', '/', { desc = 'Search in file' })
+vim.keymap.set('i', '<C-f>', '<ESC>/', { desc = 'Search in file' })

@@ -39,6 +39,11 @@ mv code-minimap-v0.6.4-aarch64-unknown-linux-gnu/code-minimap /usr/local/bin/cod
 # tabnine:
 apt install unzip curl
 paru -S unzip curl
+# ripgrep
+## https://github.com/BurntSushi/ripgrep#installation
+# make
+apt install make
+pacman -S make
 ```
 
 - After that, you can move the `./.config/nvim` to your `$HOME/.config/nvim`

@@ -21,6 +21,7 @@ local file_to_load = {
     username .. "." .. "packer-plugins",
     username .. "." .. "theme",
     username .. "." .. "commands",
+    username .. "." .. "telescope",
     username .. "." .. "terminal",
     username .. "." .. "lsp",
     username .. "." .. "autocompletion",
@@ -30,7 +31,7 @@ local file_to_load = {
     username .. "." .. "autocommands",
 }
 
-local is_debug = false
+local is_debug = true
 
 for _, file in ipairs(file_to_load) do
     if is_debug then

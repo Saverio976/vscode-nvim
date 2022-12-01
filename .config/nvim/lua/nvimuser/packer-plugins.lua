@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
   use { 'lewis6991/gitsigns.nvim' }
   use { 'p00f/nvim-ts-rainbow' }
   use { 'f-person/git-blame.nvim' }
+  use { 'nvim-treesitter/nvim-treesitter' }
 
   -- lua/nvimuser/terminal.lua
   use { 'voldikss/vim-floaterm' }
@@ -95,9 +96,21 @@ return require('packer').startup(function(use)
   -- code comments (lua/nvimuser/commands.lua)
   use { 'numToStr/Comment.nvim' }
 
-  -- treesitter
-  use { 'nvim-treesitter/nvim-treesitter' }
+  -- lua/nvimuser/text-interract.lua
   use { 'Darazaki/indent-o-matic' }
+
+  -- finder, filter, ... (lua/nvimuser/telescope.lua)
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make',
+      },
+      { 'nvim-lua/plenary.nvim' },
+      { 'arjunmahishi/flow.nvim' },
+    }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -147,6 +147,7 @@ if okwilder then
             left = {' ', wilder.popupmenu_devicons()},
             right = {' ', wilder.popupmenu_scrollbar()},
             border = 'rounded',
+            pumblend = 20,
         })
     ))
 end
