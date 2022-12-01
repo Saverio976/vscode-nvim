@@ -193,7 +193,6 @@ if oktreesitter then
             max_file_lines = 1000,
         },
     })
-    vim.cmd([[au! VimEnter * TSUpdate]])
 end
 
 local okcolorizer, colorizer = pcall(require, 'colorizer')

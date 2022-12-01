@@ -42,7 +42,10 @@ return require('packer').startup(function(use)
   use { 'lewis6991/gitsigns.nvim' }
   use { 'p00f/nvim-ts-rainbow' }
   use { 'f-person/git-blame.nvim' }
-  use { 'nvim-treesitter/nvim-treesitter' }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = 'TSUpdate',
+  }
 
   -- lua/nvimuser/terminal.lua
   use { 'voldikss/vim-floaterm' }
