@@ -1,6 +1,8 @@
+-- save when quit (un-focus) a buffer
 vim.cmd([[au! BufLeave <buffer> if &modified == 1 | write | endif]])
 vim.cmd([[au! FocusLost <buffer> if &modified == 1 | write | endif]])
 
+-- see lua/nvimuser/autocompletion.lua
 local oktabnine, tabnine = pcall(require, 'cmp_tabnine')
 if oktabnine then
     local prefetch = vim.api.nvim_create_augroup("prefetch", {clear = true})

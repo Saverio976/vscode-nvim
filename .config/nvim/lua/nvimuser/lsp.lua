@@ -45,12 +45,16 @@ local on_attach_ = function (_, bufnr)
         silent=true,
         buffer=bufnr
     })
+    -- go to preview in floating
+    -- https://github.com/rmagatti/goto-preview
     vim.keymap.set('n', 'gpd', require('goto-preview').goto_preview_definition, {
         desc = 'Lsp: Go To Definition (floating window)',
         noremap=true,
         silent=true,
         buffer=bufnr
     })
+    -- go to preview in floating
+    -- https://github.com/rmagatti/goto-preview
     vim.keymap.set('n', 'gpi', require('goto-preview').goto_preview_implementation, {
         desc = 'Lsp: Go To Implementation (floating window)',
         noremap=true,
@@ -199,4 +203,11 @@ if oklightbulb then
     vim.cmd([[au! BufEnter * lua require('nvim-lightbulb').update_lightbulb()]])
     vim.cmd([[au! BufWritePost * lua require('nvim-lightbulb').update_lightbulb()]])
     vim.cmd([[au! InsertLeave * lua require('nvim-lightbulb').update_lightbulb()]])
+end
+
+-- go to preview in floating
+-- https://github.com/rmagatti/goto-preview
+local okgotopreview, gotopreview = pcall(require, 'goto-preview')
+if okgotopreview then
+    gotopreview.setup({})
 end

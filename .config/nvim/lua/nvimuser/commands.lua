@@ -1,6 +1,9 @@
+-- save with ctrl+s
 vim.keymap.set('n', '<C-s>', '<CMD>write<CR>', { desc = 'Save' })
 vim.keymap.set('i', '<C-s>', '<CMD>write<CR>', { desc = 'Save' })
 
+-- comment/uncomment plugin
+-- https://github.com/numToStr/Comment.nvim
 local okcomment, comment = pcall(require, 'Comment')
 if okcomment then
     comment.setup({
@@ -15,6 +18,7 @@ if okcomment then
     })
 end
 
+-- use bd (buffer delete) instead of q (quit)
 vim.cmd([[cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'bd' : 'x']])
 vim.cmd([[cnoreabbrev <expr> q getcmdtype() == ":" && getcmdline() == 'q' ? 'bd' : 'q']])
 vim.cmd([[cnoreabbrev <expr> wq getcmdtype() == ":" && getcmdline() == 'wq' ? 'write \| bd' : 'wq']])

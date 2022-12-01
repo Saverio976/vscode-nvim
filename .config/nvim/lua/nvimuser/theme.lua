@@ -158,7 +158,7 @@ if oknvimtree then
     })
 end
 
--- minimap liek vscode
+-- minimap like vscode
 -- https://github.com/wfxr/minimap.vim
 vim.g.minimap_highlight_search = 1
 vim.g.minimap_git_colors = 1
@@ -170,9 +170,9 @@ vim.cmd("let g:minimap_block_buftypes = ['nofile', 'nowrite', 'quickfix', 'termi
 local okufo, ufo = pcall(require, 'ufo')
 if okufo then
     vim.g.foldcolumn = 1
-    vim.o.foldlevel = 99
-    vim.o.foldlevelstart = 99
-    vim.o.foldenable = true
+    vim.opt.foldlevel = 99
+    vim.opt.foldlevelstart = 99
+    vim.opt.foldenable = true
     vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'Folds: Open All' })
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Folds: Close All' })
     ufo.setup({

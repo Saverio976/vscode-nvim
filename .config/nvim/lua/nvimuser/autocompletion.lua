@@ -164,6 +164,8 @@ if okwhichkey then
     })
 end
 
+-- get tabnine (smart) completion
+-- https://github.com/tzachar/cmp-tabnine
 local oktabnine, tabnine = pcall(require, 'cmp_tabnine.config')
 if oktabnine then
     tabnine:setup({
@@ -173,4 +175,16 @@ if oktabnine then
         snippet_placeholder = '..',
         show_prediction_strength = true,
     })
+end
+
+-- auto pairs () [] {} ...
+-- https://github.com/windwp/nvim-autopairs
+local okautopairs, autopairs = pcall(require, 'nvim-autopairs')
+if okautopairs then
+    autopairs.setup({})
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+    cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done(),
+    )
 end

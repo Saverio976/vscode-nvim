@@ -52,6 +52,7 @@ return require('packer').startup(function(use)
   use { 'folke/trouble.nvim' }
   use { 'j-hui/fidget.nvim' }
   use { 'kosayoda/nvim-lightbulb' }
+  use { 'rmagatti/goto-preview' }
 
   -- lua/nvimuser/autocompletion.lua
   use {
@@ -80,7 +81,7 @@ return require('packer').startup(function(use)
       'rafamadriz/friendly-snippets',
     },
   }
-  -- use { '' } -- auto pairs
+  use { 'windwp/nvim-autopairs' } -- auto pairs
   use { 'folke/which-key.nvim' }
   use {
     'RishabhRD/nvim-cheat.sh',
