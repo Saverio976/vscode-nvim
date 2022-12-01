@@ -25,3 +25,6 @@ vim.cmd([[cnoreabbrev <expr> wq getcmdtype() == ":" && getcmdline() == 'wq' ? 'w
 
 vim.keymap.set('n', '<C-f>', '/', { desc = 'Search in file' })
 vim.keymap.set('i', '<C-f>', '<ESC>/', { desc = 'Search in file' })
+
+vim.keymap.set('n', '<C-p>', '<CMD>Telescope command_palette<CR>', { desc = 'Open command palette' })
+vim.cmd([[nmenu PopUp.Command\ Palette <CMD>Telescope command_palette<CR>]])

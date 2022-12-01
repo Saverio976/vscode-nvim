@@ -12,21 +12,6 @@ local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 
 -- I want to search in hidden/dot files.
 table.insert(vimgrep_arguments, "--hidden")
--- I don't want to search in the `.git` directory.
-local file_ignore_pattern = {
-    "!**/.git/*",
-    "!**/__pycache__/*",
-    "!**/node_modules/*",
-    "!**/dist/*",
-    "!**/.gradle/*",
-    "!**/.idea/*",
-    "!**/.vscode/*",
-    "!**/*.dll",
-}
-
-for _, ignored in ipairs(file_ignore_pattern) do
-    table.insert(vimgrep_arguments, ignored)
-end
 
 telescope.setup({
     defaults = {
@@ -74,17 +59,12 @@ telescope.setup({
             }
         },
     },
-    pickers = {
-        pickers = {
-            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-        },
-    },
 })
 telescope.load_extension('fzf')
 telescope.load_extension('command_palette')
 
 -- " Find files using Telescope command-line sugar.
 vim.keymap.set('n', 'tf', '<CMD>Telescope find_files<CR>', { desc = 'Telescope find_files', noremap = true, silent = true })
-vim.keymap.set('n', '<S-f>', '<CMD>Telescope live_grep<CR>', { desc = 'Telescope live_grep', noremap = true, silent = true })
+vim.keymap.set('n', 'F', '<CMD>Telescope live_grep<CR>', { desc = 'Telescope live_grep', noremap = true, silent = true })
 vim.cmd([[nmenu PopUp.Help:\ Show\ All\ Commands <CMD>Telescope commands<CR>]])
 vim.cmd([[nmenu PopUp.Help:\ Show\ All\ KeyMaps <CMD>Telescope keymaps<CR>]])
