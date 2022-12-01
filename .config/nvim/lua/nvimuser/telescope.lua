@@ -24,7 +24,7 @@ local file_ignore_pattern = {
     "!**/*.dll",
 }
 
-for _, ignored in ipairs(file_ignore_patter) do
+for _, ignored in ipairs(file_ignore_pattern) do
     table.insert(vimgrep_arguments, ignored)
 end
 
