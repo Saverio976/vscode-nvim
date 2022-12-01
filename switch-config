@@ -1,0 +1,20 @@
+#!/bin/bash
+
+CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
+CONFIG_FILE_BAK="${XDG_CONFIG_HOME:-$HOME/.config}/nvim.bak"
+
+if [[ -d "$CONFIG_FILE_BAK" ]]; then
+    echo "Remove $CONFIG_FILE ? (to replace it with $CONFIG_FILE_BAK) (Y/n) "
+    read choice
+    if [[ "$choice" == "n" ]]; then
+        exit 0
+    fi
+    rm -rf "$CONFIG_FILE"
+    mv "$CONFIG_FILE_BAK" "$CONFIG_FILE"
+else
+    mv "$CONFIG_FILE" "$CONFIG_FILE_BAK"
+    mkdir -p "$CONFIG_FILE"
+    cp -r ./.config/nvim/* "$CONFIG_FILE"
+fi
+
+# vi: ft=bash
