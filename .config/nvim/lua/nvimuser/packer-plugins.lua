@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
   use { 'j-hui/fidget.nvim' }
   use { 'kosayoda/nvim-lightbulb' }
   use { 'rmagatti/goto-preview' }
+  use { 'glepnir/lspsaga.nvim' }
 
   -- lua/nvimuser/autocompletion.lua
   use {

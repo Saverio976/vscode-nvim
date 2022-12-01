@@ -211,3 +211,12 @@ local okgotopreview, gotopreview = pcall(require, 'goto-preview')
 if okgotopreview then
     gotopreview.setup({})
 end
+
+local oklspsaga, lspsaga = pcall(require, 'lspsaga')
+if oklspsaga then
+    lspsaga.init_lsp_saga()
+    vim.cmd([[nmenu PopUp.Diagnostics\ Line <CMD>Lspsaga show_line_diagnostics<CR>]])
+    vim.cmd([[nmenu PopUp.Diagnostics <CMD>Lspsaga show_cursor_diagnostics<CR>]])
+    vim.cmd([[nmenu PopUp.Doc\ Hover <CMD>Lspsaga hover_doc<CR>]])
+    vim.cmd([[nmenu PopUp.Lsp\ Finder <CMD>Lspsaga lsp_finder<CR>]])
+end
