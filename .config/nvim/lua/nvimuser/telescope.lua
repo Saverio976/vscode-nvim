@@ -53,6 +53,26 @@ telescope.setup({
             fuzzy = true,
             case_mode = 'smart_case'
         },
+        command_palette = {
+            {
+                "File",
+                { "Save (C-s)", '<CMD>write<CR>', },
+                { "Quit (C-q)", '<CMD>bd<CR>', },
+                { "Find File", '<CMD>Telescope find_files<CR>' },
+            },
+            {
+                "Help",
+                { "Commands", '<CMD>Telescope commands<CR>', },
+                { "Keymaps", '<CMD>Telescope keymaps<CR>', },
+                { "File Tree Help Toggle", '<CMD>NvimTreeFocus | call feedkeys("g?")<CR>', },
+                { "Tutorial", '<CMD>Tutor<CR>', },
+            },
+            {
+                "Terminal",
+                { "Toggle (C-=)", '<CMD>FloatermToggle<CR>', },
+                { "New (C-S-²)", '<CMD>FloatermNew<CR>' },
+            }
+        },
     },
     pickers = {
         pickers = {
@@ -61,14 +81,10 @@ telescope.setup({
     },
 })
 telescope.load_extension('fzf')
+telescope.load_extension('command_palette')
 
 -- " Find files using Telescope command-line sugar.
 vim.keymap.set('n', 'tf', '<CMD>Telescope find_files<CR>', { desc = 'Telescope find_files', noremap = true, silent = true })
 vim.keymap.set('n', '<S-f>', '<CMD>Telescope live_grep<CR>', { desc = 'Telescope live_grep', noremap = true, silent = true })
 vim.cmd([[nmenu PopUp.Help:\ Show\ All\ Commands <CMD>Telescope commands<CR>]])
 vim.cmd([[nmenu PopUp.Help:\ Show\ All\ KeyMaps <CMD>Telescope keymaps<CR>]])
-
-local okflow, flow = pcall(require, 'flow')
-if okflow then
-    flow.setup({})
-end

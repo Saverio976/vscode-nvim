@@ -108,7 +108,7 @@ return require('packer').startup(function(use)
         run = 'make',
       },
       { 'nvim-lua/plenary.nvim' },
-      { 'arjunmahishi/flow.nvim' },
+      { 'LinArcX/telescope-command-palette.nvim' },
     }
   }
 
