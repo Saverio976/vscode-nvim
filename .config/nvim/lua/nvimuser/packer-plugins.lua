@@ -70,6 +70,7 @@ return require('packer').startup(function(use)
       'lukas-reineke/cmp-under-comparator',
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
     },
   }
   use {
@@ -86,7 +87,7 @@ return require('packer').startup(function(use)
       'rafamadriz/friendly-snippets',
     },
   }
-  use { 'windwp/nvim-autopairs' } -- auto pairs
+  use { 'windwp/nvim-autopairs' }
   use { 'folke/which-key.nvim' }
   use {
     'RishabhRD/nvim-cheat.sh',
@@ -94,7 +95,7 @@ return require('packer').startup(function(use)
       'RishabhRD/popfix'
     },
   }
-  use { 'gelguy/wilder.nvim' }
+  -- use { 'gelguy/wilder.nvim' } -- this plugin have error with code-minimap
 
   -- code comments (lua/nvimuser/commands.lua)
   use { 'numToStr/Comment.nvim' }

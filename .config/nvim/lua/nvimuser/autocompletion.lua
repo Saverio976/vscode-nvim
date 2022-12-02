@@ -120,6 +120,26 @@ cmp.setup({
         { name = 'cmp_tabnine' }
     },
 })
+cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' }
+    }
+})
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        {
+            name = 'cmdline',
+            option = {
+                ignore_cmds = { 'Man', '!' }
+            }
+        }
+    })
+})
+
 
 -- add snippets to completions
 -- https://github.com/L3MON4D3/LuaSnip
@@ -130,27 +150,27 @@ else
     print("can't load luasnip\n")
 end
 
--- vim commands completions
+-- vim commands completions -- this plugin have error with code-minimap
 -- https://github.com/gelguy/wilder.nvim
-local okwilder, wilder = pcall(require, 'wilder')
-if okwilder then
-    wilder.setup({modes = {':', '/'}})
-    wilder.set_option('pipeline', {
-        wilder.branch(
-            wilder.cmdline_pipeline(),
-            wilder.search_pipeline()
-        ),
-    })
-    wilder.set_option('renderer', wilder.popupmenu_renderer(
-        wilder.popupmenu_palette_theme({
-            highlighter = wilder.basic_highlighter(),
-            left = {' ', wilder.popupmenu_devicons()},
-            right = {' ', wilder.popupmenu_scrollbar()},
-            border = 'rounded',
-            pumblend = 20,
-        })
-    ))
-end
+-- local okwilder, wilder = pcall(require, 'wilder')
+-- if okwilder then
+--     wilder.setup({modes = {':', '/'}})
+--     wilder.set_option('pipeline', {
+--         wilder.branch(
+--             wilder.cmdline_pipeline(),
+--             wilder.search_pipeline()
+--         ),
+--     })
+--     wilder.set_option('renderer', wilder.popupmenu_renderer(
+--         wilder.popupmenu_palette_theme({
+--             highlighter = wilder.basic_highlighter(),
+--             left = {' ', wilder.popupmenu_devicons()},
+--             right = {' ', wilder.popupmenu_scrollbar()},
+--             border = 'rounded',
+--             pumblend = 20,
+--         })
+--     ))
+-- end
 
 -- curl cheat.sh to get help
 -- https://github.com/RishabhRD/nvim-cheat.sh

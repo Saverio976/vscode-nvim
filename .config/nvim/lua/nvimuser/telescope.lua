@@ -5,6 +5,8 @@ if not okteles then
     return
 end
 
+local actions = require("telescope.actions")
+
 local telescopeConfig = require("telescope.config")
 
 -- Clone the default Telescope configuration
@@ -32,6 +34,12 @@ telescope.setup({
                 treesitter = false
             }
         },
+        mappings = {
+            i = {
+                ["<C-u>"] = false,
+                ["<ESC>"] = actions.close,
+            },
+        },
     },
     extensions = {
         fzf = {
@@ -41,22 +49,32 @@ telescope.setup({
         command_palette = {
             {
                 "File",
-                { "Save (C-s)", '<CMD>write<CR>', },
-                { "Quit (C-q)", '<CMD>bd<CR>', },
-                { "Find File", '<CMD>Telescope find_files<CR>' },
+                { "Save (C-s)", ':write' },
+                { "Quit (C-q)", ':bd' },
+                { "Find File", ':Telescope find_files' },
             },
             {
                 "Help",
-                { "Commands", '<CMD>Telescope commands<CR>', },
-                { "Keymaps", '<CMD>Telescope keymaps<CR>', },
-                { "File Tree Help Toggle", '<CMD>NvimTreeFocus | call feedkeys("g?")<CR>', },
-                { "Tutorial", '<CMD>Tutor<CR>', },
+                { "Commands", ':Telescope commands' },
+                { "Keymaps", ':Telescope keymaps' },
+                { "File Tree Help Toggle", ':NvimTreeFocus | :call feedkeys("g?")' },
+                { "Tutorial", ':Tutor' },
             },
             {
                 "Terminal",
-                { "Toggle (C-=)", '<CMD>FloatermToggle<CR>', },
-                { "New (C-S-²)", '<CMD>FloatermNew<CR>' },
+                { "Toggle (C-=)", ':FloatermToggle', },
+                { "New (C-S-²)", ':FloatermNew' },
+            },
+            {
+                "General Command",
+                { "Quit Nvim", ':quitall' },
+                { "Close Minimap", ':' }
             }
+        },
+    },
+    pickers = {
+        find_files = {
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
         },
     },
 })
