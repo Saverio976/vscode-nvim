@@ -1,7 +1,7 @@
 FROM node:slim
 RUN apt-get update &&  \
     apt-get install -y \
-        clang          \
+        clangd         \
         curl           \
         unzip          \
         make           \
