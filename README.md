@@ -14,6 +14,10 @@ try to have a vscode-like with neovim config
 
 - tab resizable with mouse (neovim default)
 
+- ctrl+click show lsp reference
+
+- command palette with ctrl+p
+
 # Install
 
 ```bash
