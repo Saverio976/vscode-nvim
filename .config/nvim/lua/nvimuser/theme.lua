@@ -185,10 +185,12 @@ if okufo then
     })
 end
 
+-- language parsing
+-- https://github.com/nvim-treesitter/nvim-treesitter
 local oktreesitter, treesitter = pcall(require, 'nvim-treesitter.configs')
 if oktreesitter then
     treesitter.setup({
-        ensure_installed = { "c", "python", "typescript", "javascript", "bash", "lua" },
+        ensure_installed = { "c", "python", "typescript", "javascript", "bash", "lua", "vim" }, -- dont remove 'vim', else you will have bad error, and you dont want to mess with errors
         sync_install = true,
         rainbow = {
             enable = true,
@@ -198,15 +200,15 @@ if oktreesitter then
     })
 end
 
+-- colorize hexadecimal colors / color name like Red
+-- https://github.com/norcalli/nvim-colorizer.lua
 local okcolorizer, colorizer = pcall(require, 'colorizer')
 if okcolorizer then
     colorizer.setup()
 end
 
-vim.opt.list = true
-vim.opt.listchars:append "eol:↴"
-vim.opt.listchars:append "trail:⋅"
-vim.opt.listchars:append "tab: ▷"
+-- show indent line
+-- lukas-reineke/indent-blankline.nvim
 local okindentblank, indentblank = pcall(require, 'indent_blankline')
 if okindentblank then
     indentblank.setup({
@@ -217,9 +219,35 @@ if okindentblank then
     })
 end
 
+-- git sign on left column
+-- https://github.com/lewis6991/gitsigns.nvim
 local okgit, gitsigns = pcall(require, 'gitsigns')
 if okgit then
     gitsigns.setup()
 end
 
+-- show git blame per line
+-- https://github.com/f-person/git-blame.nvim
 vim.g.gitblame_enabled = 1
+
+-- nice config for ui
+-- https://github.com/folke/noice.nvim
+local oknoice, noice = pcall(require, 'noice')
+if oknoice then
+    noice.setup({
+        lsp = {
+            override = {
+                ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                ["vim.lsp.util.stylize_markdown"] = true,
+                ["cmp.entry.get_documentation"] = true,
+            },
+        },
+        presets = {
+            bottom_search = true,
+            command_palette = true,
+            long_message_to_split = true,
+            inc_rename = false,
+            lsp_doc_border = true,
+        },
+    })
+end

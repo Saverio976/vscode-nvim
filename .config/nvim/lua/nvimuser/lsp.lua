@@ -205,13 +205,6 @@ if oklightbulb then
     vim.cmd([[au! InsertLeave * lua require('nvim-lightbulb').update_lightbulb()]])
 end
 
--- go to preview in floating
--- https://github.com/rmagatti/goto-preview
-local okgotopreview, gotopreview = pcall(require, 'goto-preview')
-if okgotopreview then
-    gotopreview.setup({})
-end
-
 local oklspsaga, lspsaga = pcall(require, 'lspsaga')
 if oklspsaga then
     lspsaga.init_lsp_saga()

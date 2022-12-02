@@ -46,6 +46,12 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = 'TSUpdate',
   }
+  use {
+    'folke/noice.nvim',
+    requires = {
+      'MunifTanjim/nui.nvim',
+    },
+  }
 
   -- lua/nvimuser/terminal.lua
   use { 'voldikss/vim-floaterm' }
@@ -113,6 +119,7 @@ return require('packer').startup(function(use)
       },
       { 'nvim-lua/plenary.nvim' },
       { 'LinArcX/telescope-command-palette.nvim' },
+      { 'gbrlsnchs/telescope-lsp-handlers.nvim' },
     }
   }
 

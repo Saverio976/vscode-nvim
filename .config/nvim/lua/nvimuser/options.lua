@@ -26,3 +26,10 @@ vim.opt.fileformat = 'unix'
 
 vim.opt.timeout = true
 vim.opt.timeoutlen = 500
+
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
+vim.opt.listchars:append "trail:⋅"
+vim.opt.listchars:append "tab: ▷"
+
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

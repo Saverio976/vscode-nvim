@@ -78,7 +78,7 @@ telescope.setup({
             {
                 "General Command",
                 { "Quit Nvim", ':quitall' },
-                { "Close Minimap", ':' }
+                { "Close Minimap", ':MinimapClose' },
             },
             {
                 "Help",
@@ -97,6 +97,7 @@ telescope.setup({
 })
 telescope.load_extension('fzf')
 telescope.load_extension('command_palette')
+telescope.load_extension("noice")
 
 -- " Find files using Telescope command-line sugar.
 vim.keymap.set('n', 'tf', '<CMD>Telescope find_files<CR>', { desc = 'Telescope find_files', noremap = true, silent = true })

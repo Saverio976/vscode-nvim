@@ -25,7 +25,6 @@ local file_to_load = {
     username .. "." .. "terminal",
     username .. "." .. "lsp",
     username .. "." .. "autocompletion",
-    username .. "." .. "codeaction",
     username .. "." .. "options",
     username .. "." .. "text-interract",
     username .. "." .. "autocommands",
