@@ -51,15 +51,18 @@ telescope.setup({
                 "File",
                 { "Save (C-s)", ':write' },
                 { "Quit (C-q)", ':bd' },
-                { "Find File", ':Telescope find_files' },
             },
             {
-                "Help",
-                { "Commands", ':Telescope commands' },
-                { "Keymaps", ':Telescope keymaps' },
-                { "File Tree Help Toggle", ':NvimTreeFocus | :call feedkeys("g?")' },
-                { "Tutorial", ':Tutor' },
+                "Folder",
+                { "Open Tree", ':NvimTreeFocus' },
+                { "Close Tree", ':NvimTreeClose' },
             },
+            {
+                "Find",
+                { "File", ':Telescope find_files' },
+                { "Pattern in current file", ':call feedkeys("/")' },
+                { "Pattern in all files", ':Telescope live_grep' },
+            }
             {
                 "Terminal",
                 { "Toggle (C-=)", ':FloatermToggle', },
@@ -69,7 +72,14 @@ telescope.setup({
                 "General Command",
                 { "Quit Nvim", ':quitall' },
                 { "Close Minimap", ':' }
-            }
+            },
+            {
+                "Help",
+                { "Commands", ':Telescope commands' },
+                { "Keymaps", ':Telescope keymaps' },
+                { "File Tree Help Toggle", ':NvimTreeFocus | :call feedkeys("g?")' },
+                { "Tutorial", ':Tutor' },
+            },
         },
     },
     pickers = {
