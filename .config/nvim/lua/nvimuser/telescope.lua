@@ -62,7 +62,7 @@ telescope.setup({
                 { "File", ':Telescope find_files' },
                 { "Pattern in current file", ':call feedkeys("/")' },
                 { "Pattern in all files", ':Telescope live_grep' },
-            }
+            },
             {
                 "Terminal",
                 { "Toggle (C-=)", ':FloatermToggle', },
