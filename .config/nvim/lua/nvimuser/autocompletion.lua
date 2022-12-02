@@ -202,10 +202,22 @@ end
 -- https://github.com/windwp/nvim-autopairs
 local okautopairs, autopairs = pcall(require, 'nvim-autopairs')
 if okautopairs then
-    autopairs.setup({})
+    local del_keymaps = function() -- found at https://github.com/windwp/nvim-autopairs/blob/master/lua/nvim-autopairs.lua#L140
+        local status, autopairs_keymaps = pcall(vim.api.nvim_buf_get_var, 0, 'autopairs_keymaps')
+        if status and autopairs_keymaps and #autopairs_keymaps > 0 then
+            for _, key in pairs(autopairs_keymaps) do
+                pcall(vim.api.nvim_buf_del_keymap, 0, 'i', key)
+            end
+        end
+    end
+    autopairs.setup({
+        enable_check_bracket_line = true,
+        ignored_next_char = "[%w%.]",
+    })
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     cmp.event:on(
         'confirm_done',
         cmp_autopairs.on_confirm_done()
     )
+    del_keymaps()
 end
