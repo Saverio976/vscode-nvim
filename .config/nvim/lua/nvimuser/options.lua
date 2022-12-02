@@ -23,3 +23,6 @@ vim.opt.colorcolumn = '80'
 vim.opt.number = true
 
 vim.opt.fileformat = 'unix'
+
+vim.opt.timeout = true
+vim.opt.timeoutlen = 500
