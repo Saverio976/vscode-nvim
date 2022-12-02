@@ -188,7 +188,7 @@ end
 local oktreesitter, treesitter = pcall(require, 'nvim-treesitter.configs')
 if oktreesitter then
     treesitter.setup({
-        ensure_installed = { "c", "python", "typescript", "javascript", "bash", "lua", "rust" },
+        ensure_installed = { "c", "python", "typescript", "javascript", "bash", "lua" },
         sync_install = true,
         rainbow = {
             enable = true,
