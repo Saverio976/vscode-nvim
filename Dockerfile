@@ -2,6 +2,8 @@ FROM node:slim
 RUN apt-get update &&  \
     apt-get install -y \
         clangd         \
+        gcc            \
+        clang          \
         curl           \
         unzip          \
         make           \
@@ -23,7 +25,7 @@ RUN curl -Lo nvim.deb                                                           
     apt-get clean &&                                                                                         \
     rm -rf /var/lib/apt/
 RUN useradd -m -s "$SHELL" nvimuser
-RUN npm install -g pyright typescript typescript-language-server && \
+RUN npm install -g pyright typescript typescript-language-server bash-language-server && \
     npm cache clean --force
 USER nvimuser
 WORKDIR /home/nvimuser

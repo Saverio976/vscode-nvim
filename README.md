@@ -42,7 +42,7 @@ tar xf code-minimap.tar.gz
 mv code-minimap-v0.6.4-aarch64-unknown-linux-gnu/code-minimap /usr/local/bin/code-minimap
 # tabnine:
 apt install unzip curl
-paru -S unzip curl
+pacman -S unzip curl
 # ripgrep
 ## https://github.com/BurntSushi/ripgrep#installation
 # make
