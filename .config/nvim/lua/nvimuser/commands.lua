@@ -30,3 +30,5 @@ vim.keymap.set('n', '<C-p>', '<CMD>Telescope command_palette<CR>', { desc = 'Ope
 vim.cmd([[nmenu PopUp.Command\ Palette <CMD>Telescope command_palette<CR>]])
 
 vim.keymap.set('n', '<C-q>', '<CMD>w|bd<CR>')
+
+vim.cmd([[nmenu PopUp.New\ File <CMD>NvimTreeFocus|call feedkeys("gga")<CR>]])

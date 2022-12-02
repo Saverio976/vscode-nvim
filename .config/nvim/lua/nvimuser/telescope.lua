@@ -51,11 +51,14 @@ telescope.setup({
                 "File",
                 { "Save (C-s)", ':write' },
                 { "Quit (C-q)", ':bd' },
+                { "New File", ':NvimTreeFocus | :call feedkeys("gga")' },
             },
             {
                 "Folder",
                 { "Open Tree", ':NvimTreeFocus' },
                 { "Close Tree", ':NvimTreeClose' },
+                { "Help Toggle", ':NvimTreeFocus | :call feedkeys("g?")' },
+                { "New Folder: add a '/' at the end of the name", ':NvimTreeFocus | :call feedkeys("gga") },
             },
             {
                 "Find",
