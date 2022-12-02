@@ -25,4 +25,4 @@ vim.opt.number = true
 vim.opt.fileformat = 'unix'
 
 vim.opt.timeout = true
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 250
