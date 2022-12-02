@@ -29,6 +29,8 @@ npm install -g typescript typescript-language-server
 ## for c/c++ completion:
 apt install clangd
 pacman -S clang
+## for bash
+npm install -g bash-language-server
 # Minimap requirements
 # -> https://github.com/wfxr/code-minimap/releases
 ## for debian and derivates
