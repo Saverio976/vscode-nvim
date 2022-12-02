@@ -38,6 +38,10 @@ telescope.setup({
             i = {
                 ["<C-u>"] = false,
                 ["<ESC>"] = actions.close,
+                ["<ScrollWheelDown>"] = actions.move_selection_next,
+                ["<ScrollWheelUp>"] = actions.move_selection_previous,
+                ["<LeftMouse>"] = actions.select_default,
+                ["<<RightMouse>"] = actions.close,
             },
         },
     },
