@@ -63,6 +63,6 @@ docker run -it --rm saverio976/vscode-nvim
 
 # Links
 
-- https://hub.docker.com/repository/docker/saverio976/vscode-nvim
+- https://hub.docker.com/r/saverio976/vscode-nvim
 
 - https://git.kreog.com/Saverio976/vscode-nvim
