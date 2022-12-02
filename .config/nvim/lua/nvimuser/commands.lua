@@ -29,4 +29,4 @@ vim.keymap.set('i', '<C-f>', '<ESC>/', { desc = 'Search in file' })
 vim.keymap.set('n', '<C-p>', '<CMD>Telescope command_palette<CR>', { desc = 'Open command palette' })
 vim.cmd([[nmenu PopUp.Command\ Palette <CMD>Telescope command_palette<CR>]])
 
-vim.keymap.set('n', '<C-q>', '<CMD>quitall<CR>')
+vim.keymap.set('n', '<C-q>', '<CMD>w|bd<CR>')
