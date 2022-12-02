@@ -31,4 +31,4 @@ vim.cmd([[nmenu PopUp.Command\ Palette <CMD>Telescope command_palette<CR>]])
 
 vim.keymap.set('n', '<C-q>', '<CMD>w|bd<CR>')
 
-vim.cmd([[nmenu PopUp.New\ File <CMD>NvimTreeFocus|call feedkeys("gga")<CR>]])
+vim.cmd([[nmenu PopUp.New\ File <CMD>NvimTreeFocus \| call feedkeys("gga")<CR>]])
