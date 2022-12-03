@@ -191,7 +191,7 @@ if oktreesitter then
             enable = true,
         },
         indent = {
-            enable = true,
+            enable = false,
         },
         ensure_installed = { "c", "python", "typescript", "javascript", "bash", "lua", "vim" }, -- dont remove 'vim', else you will have bad error, and you dont want to mess with errors
         sync_install = true,
