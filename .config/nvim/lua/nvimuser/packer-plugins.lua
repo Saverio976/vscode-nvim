@@ -101,7 +101,6 @@ return require('packer').startup(function(use)
       'RishabhRD/popfix'
     },
   }
-  -- use { 'gelguy/wilder.nvim' } -- this plugin have error with code-minimap
 
   -- code comments (lua/nvimuser/commands.lua)
   use { 'numToStr/Comment.nvim' }
@@ -119,7 +118,6 @@ return require('packer').startup(function(use)
       },
       { 'nvim-lua/plenary.nvim' },
       { 'LinArcX/telescope-command-palette.nvim' },
-      { 'gbrlsnchs/telescope-lsp-handlers.nvim' },
     }
   }
 
