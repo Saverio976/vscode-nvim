@@ -68,3 +68,85 @@ docker run -it --rm saverio976/vscode-nvim
 - https://hub.docker.com/r/saverio976/vscode-nvim
 
 - https://git.kreog.com/Saverio976/vscode-nvim
+
+# Plugins
+
+- wbthomason/packer.nvim
+
+- lewis6991/impatient.nvim
+
+- nathom/filetype.nvim
+
+- Mofiqul/vscode.nvim
+
+- nvim-lualine/lualine.nvim
+
+- nvim-lualine/lualine.nvim
+
+- nvim-tree/nvim-tree.lua
+    - nvim-tree/nvim-web-devicons
+
+- wfxr/minimap.vim
+
+- kevinhwang91/nvim-ufo
+    - kevinhwang91/promise-async
+
+- norcalli/nvim-colorizer.lua
+
+- lukas-reineke/indent-blankline.nvim
+
+- lewis6991/gitsigns.nvim
+
+- p00f/nvim-ts-rainbow
+
+- f-person/git-blame.nvim
+
+- nvim-treesitter/nvim-treesitter
+
+- folke/noice.nvim
+    - MunifTanjim/nui.nvim
+
+- voldikss/vim-floaterm
+
+- neovim/nvim-lspconfig
+
+- onsails/lspkind-nvim
+
+- folke/trouble.nvim
+
+- j-hui/fidget.nvim
+
+- kosayoda/nvim-lightbulb
+
+- rmagatti/goto-preview
+
+- glepnir/lspsaga.nvim
+
+- hrsh7th/nvim-cmp
+    - hrsh7th/cmp-nvim-lsp
+    - hrsh7th/cmp-nvim-lsp-signature-help
+    - lukas-reineke/cmp-rg
+    - hrsh7th/cmp-path
+    - hrsh7th/cmp-path
+    - lukas-reineke/cmp-under-comparator
+    - saadparwaiz1/cmp_luasnip
+    - hrsh7th/cmp-buffer
+    - hrsh7th/cmp-cmdline
+    - tzachar/cmp-tabnine
+
+- L3MON4D3/LuaSnip
+    - rafamadriz/friendly-snippets
+
+- windwp/nvim-autopairs
+
+- folke/which-key.nvim
+
+- RishabhRD/nvim-cheat.sh
+    - RishabhRD/popfix
+
+- numToStr/Comment.nvim
+
+- nvim-telescope/telescope.nvim
+    - nvim-telescope/telescope-fzf-native.nvim
+    - nvim-lua/plenary.nvim
+    - LinArcX/telescope-command-palette.nvim
