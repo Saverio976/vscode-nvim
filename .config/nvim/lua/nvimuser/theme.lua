@@ -186,6 +186,13 @@ end
 local oktreesitter, treesitter = pcall(require, 'nvim-treesitter.configs')
 if oktreesitter then
     treesitter.setup({
+        highlight = {
+            additional_vim_regex_highlighting = true,
+            enable = true,
+        },
+        indent = {
+            enable = true,
+        },
         ensure_installed = { "c", "python", "typescript", "javascript", "bash", "lua", "vim" }, -- dont remove 'vim', else you will have bad error, and you dont want to mess with errors
         sync_install = true,
         rainbow = {
