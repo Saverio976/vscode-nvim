@@ -8,15 +8,59 @@ try to have a vscode-like with neovim config
 
 - right click show some lsp actions
 
+![right click](/assets/right-click.png)
+
 - minimap
 
+![minimap](/assets/minimap.png)
+
 - autocompletion (with lsp (+ tabnine))
+
+![auto completion](/assets/completions.png)
+
+![path compltion](/assets/path-completion.png)
+
+- lsp doc / type
+
+![lsp type doc](./assets/lsp-type-doc.png)
+
+![lsp type doc 1](./assets/lsp-type-doc1.png)
 
 - tab resizable with mouse (neovim default)
 
 - ctrl+click show lsp reference
 
+![ctrl click](/assets/ctrl-click.png)
+
 - command palette with ctrl+p
+
+![cmd palette](/assets/cmd-palette.png)
+
+![cmd palette file](/assets/cmd-palette-file.png)
+
+![cmd palette help](/assets/cmd-palette-help.png)
+
+- command line like command palette
+
+![cmdline](/assets/cmdline.png)
+
+- create file in floating window
+
+![file floating](/assets/create-file-floating.png)
+
+- clickable fold
+
+![fold plain](/assets/fold-plain.png)
+
+![fold close](/assets/fold-close.png)
+
+- nice search
+
+![nice search](/assets/nice-search.png)
+
+- good performance
+
+![performance](/assets/performance.png)
 
 # Install
 
