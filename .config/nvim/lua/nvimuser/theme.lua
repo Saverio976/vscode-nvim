@@ -252,5 +252,8 @@ if oknoice then
             inc_rename = false,
             lsp_doc_border = true,
         },
+        notify = {
+            view = "mini",
+        }
     })
 end
