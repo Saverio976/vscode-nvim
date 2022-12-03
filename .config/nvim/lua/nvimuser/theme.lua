@@ -172,10 +172,6 @@ vim.cmd("let g:minimap_block_buftypes = ['nofile', 'nowrite', 'quickfix', 'termi
 -- https://github.com/kevinhwang91/nvim-ufo
 local okufo, ufo = pcall(require, 'ufo')
 if okufo then
-    vim.g.foldcolumn = 1
-    vim.opt.foldlevel = 99
-    vim.opt.foldlevelstart = 99
-    vim.opt.foldenable = true
     vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'Folds: Open All' })
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Folds: Close All' })
     ufo.setup({

@@ -32,4 +32,15 @@ vim.opt.listchars:append "eol:↴"
 vim.opt.listchars:append "trail:⋅"
 vim.opt.listchars:append "tab: ▷"
 
+vim.opt.fillchars:append "eob: "
+vim.opt.fillchars:append "fold: "
+vim.opt.fillchars:append "foldopen:"
+vim.opt.fillchars:append "foldsep: "
+vim.opt.fillchars:append "foldclose:"
+vim.opt.foldcolumn = '1'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
