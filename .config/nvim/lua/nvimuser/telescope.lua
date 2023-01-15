@@ -41,7 +41,7 @@ telescope.setup({
                 ["<ScrollWheelDown>"] = actions.move_selection_next,
                 ["<ScrollWheelUp>"] = actions.move_selection_previous,
                 ["<LeftMouse>"] = actions.select_default,
-                ["<<RightMouse>"] = actions.close,
+                ["<RightMouse>"] = actions.close,
             },
         },
     },
