@@ -2,8 +2,6 @@
 
 try to have a vscode-like with neovim config
 
-**config are at https://git.kreog.com/Saverio976/vscode-nvim**
-
 ![current-nvim](/assets/current-nvim.png)
 
 # Features
